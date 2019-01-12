@@ -1,0 +1,92 @@
+
+<div style="text-align:left">
+  <form [formGroup]="InsertProductFormvalidators" action="/Api/Product/Insert" #form1
+        method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label>Name:</label>
+      <input class="form-control" formControlName="name" name="name" [(ngModel)]="product.name">
+      <div *ngIf="InsertProductFormvalidators.controls['name'].invalid
+            && (InsertProductFormvalidators.controls['name'].dirty
+           || InsertProductFormvalidators.controls['name'].touched)"
+           style="color:red">
+        <!--class="alert alert-danger"-->
+
+        <div *ngIf="InsertProductFormvalidators.controls['name'].errors.maxlength">
+          Name length should be less than 20 characters.
+        </div>
+        <div *ngIf="InsertProductFormvalidators.controls['name'].errors.required">
+          Name is required.
+        </div>
+        <div *ngIf="InsertProductFormvalidators.controls['name'].errors.minlength">
+          Name length should be greater than 3 characters.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Price:</label>
+      <input class="form-control" formControlName="price" name="price" [(ngModel)]="product.price">
+      <div *ngIf="InsertProductFormvalidators.controls['price'].invalid
+            && (InsertProductFormvalidators.controls['price'].dirty
+           || InsertProductFormvalidators.controls['price'].touched)"
+           style="color:red">
+        <div *ngIf="InsertProductFormvalidators.controls['price'].errors.required">
+          <span> Price is required. </span>
+        </div>
+        <div *ngIf="InsertProductFormvalidators.controls['price'].errors.pattern">
+          <span> Price must be number( one to 10 digits). </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Count:</label>
+      <input class="form-control" formControlName="count" name="count" [(ngModel)]="product.count">
+      <div *ngIf="InsertProductFormvalidators.controls['count'].invalid
+            && (InsertProductFormvalidators.controls['count'].dirty
+           || InsertProductFormvalidators.controls['count'].touched)"
+           style="color:red">
+        <div>
+          <span *ngIf="InsertProductFormvalidators.controls['count'].errors.required"> Count is required. </span>
+        </div>
+        <div>
+          <span *ngIf="InsertProductFormvalidators.controls['count'].errors.pattern"> Count must be number( one to 4 digits). </span>
+        </div>
+      </div>
+    </div>
+    <div class="custom-file" style="margin-bottom:20px">
+      <input type="file" class="custom-file-input" id="file1" name="img">
+      <label class="custom-file-label" for="file1">Choose file</label>
+    </div>
+    <button class="btn btn-Success" type="submit" (click)="form1.submit()">+Add Product</button>
+  </form>
+</div>
+
+
+
+<!--<form action="/" method="post" enctype="multipart/form-data">
+
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" name="name" id="name" required
+           [(ngModel)]="name" />
+    <div *ngIf="name.invalid" class="alert alert-danger">
+      <div *ngIf="name.error.required">
+        Type the product name.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <input class="form-control" name="price" />
+  </div>
+  <div class="form-group">
+    <label>Count</label>
+    <input class="form-control" name="count" />
+  </div>
+  <div class="form-group">
+    <label>Image</label>
+    <input type="file" class="form-control" name="img" />
+  </div>
+  <button class="btn btn-success">+Add Product</button>
+</form>-->
