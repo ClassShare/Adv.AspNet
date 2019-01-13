@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication1.Models;
 
 namespace WebApplication1
 {
@@ -26,6 +28,9 @@ namespace WebApplication1
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+            services.AddDbContext<DBMohammadpour>(x => {
+                x.UseSqlServer("Data Source =.; Initial Catalog = DBMohammadpour; Integrated Security = True");
             });
         }
 

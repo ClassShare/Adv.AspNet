@@ -1,0 +1,28 @@
+<h1>Product List</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Count</th>
+      <th>Image</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of product">
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.count}}</td>
+    <td>
+      <img width="80" src="{{item.imgBase64}}" />
+    </td>
+    <td>
+      <a class="btn btn-danger" [routerLink]="['/productdetail',item.id]">Details</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

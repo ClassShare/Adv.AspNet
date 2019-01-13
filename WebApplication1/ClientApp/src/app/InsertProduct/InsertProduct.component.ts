@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class InsertProductComponent {
   InsertProductFormvalidators: FormGroup;
   private formbuilder: FormBuilder = new FormBuilder();
-  product: Product;
+  product: Product = new Product();
   //constructor(fb: FormBuilder) {
   constructor() {
 
@@ -25,4 +25,5 @@ class Product {
   name: string;
   price: number;
   count: number;
+  img: File;
 }

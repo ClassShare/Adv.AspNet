@@ -1,7 +1,11 @@
 
 <div style="text-align:left">
-  <form [formGroup]="InsertProductFormvalidators" action="/Api/Product/Insert" #form1
-        method="post" enctype="multipart/form-data">
+  <h1>Insert Product</h1>
+  <form #form1
+        [formGroup]="InsertProductFormvalidators"
+        action="/Api/Product/Insert"
+        method="post"
+        enctype="multipart/form-data">
     <div class="form-group">
       <label>Name:</label>
       <input class="form-control" formControlName="name" name="name" [(ngModel)]="product.name">

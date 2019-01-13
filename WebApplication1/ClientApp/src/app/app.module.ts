@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { InsertProductComponent } from './InsertProduct/InsertProduct.component';
+import { ListProducts } from './ListProducts/ListProducts.component';
+import { productDetail } from './productDetail/productDetail.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +16,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    InsertProductComponent
+    InsertProductComponent,
+    ListProducts,
+    productDetail
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -23,7 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: 'newproduct', component: InsertProductComponent }
+      { path: 'newproduct', component: InsertProductComponent },
+      { path: 'listproducts', component: ListProducts },
+      { path: 'productdetail/:id', component: productDetail }
     ])
   ],
   providers: [],
